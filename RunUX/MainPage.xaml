@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="RunUX.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RunUX"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Image Source="ms-appx:///Assets/Icons/Wallpaper5.jpg" Stretch="UniformToFill" />
+        <Grid Background="Black" Opacity="0.4" x:Name="BackDrop" Visibility="Collapsed">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.80" From="0" To="0.4" />
+            </animations:Implicit.ShowAnimations>
+            <animations:Implicit.HideAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.80" From="0.4" To="0" />
+            </animations:Implicit.HideAnimations>
+        </Grid>
+        
+        <ToggleButton HorizontalAlignment="Stretch" Opacity="0" VerticalAlignment="Stretch" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" />
+        
+        <local:SearchControl x:Name="SearchControl" Margin="300,120,0,0" VerticalAlignment="Center" Visibility="Collapsed">
+            <animations:Implicit.ShowAnimations>
+                <animations:TranslationAnimation Duration="0:0:0.25" From="0,100,0" To="0, 0, 0" />
+                <animations:OpacityAnimation Duration="0:0:0.20" From="0" To="1" />
+            </animations:Implicit.ShowAnimations>
+            <animations:Implicit.HideAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.20" From="1" To="0" />
+                <animations:TranslationAnimation Duration="0:0:0.25" From="0,0,0" To="0,100,0" />
+            </animations:Implicit.HideAnimations>
+        </local:SearchControl>
+    </Grid>
+</Page>
